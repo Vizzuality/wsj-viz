@@ -62,10 +62,9 @@ CartoDB.prototype.tile_data = function(x, y, zoom , callback) {
       the_geom = 'ST_Simplify((ST_Dump('+geom_column+')).geom,0.00005) as the_geom'
     } else if (zoom >=6){
       the_geom = 'ST_Simplify((ST_Dump('+geom_column+')).geom,0.0005) as the_geom'
-    } else if (zoom >= 4){
-      the_geom = 'ST_Simplify((ST_Dump('+geom_column+')).geom,0.005) as the_geom'
     } else {
       the_geom = 'ST_Simplify((ST_Dump('+geom_column+')).geom,0.05) as the_geom'
+      the_geom = 'ST_Simplify((ST_Dump('+geom_column+')).geom,0.0005) as the_geom'
     }
     
     var columns = [the_geom].concat(opts.columns).join(',');
