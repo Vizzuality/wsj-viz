@@ -82,7 +82,7 @@
 					  },
                       'polygon-fill': function(data) { 
 						  if (data.cartodb_id == -1.0){
-	                          return 'none';
+	                          return "rgba(0,0,0,0)";
 						  } else {
    	                          var q = data.percent_delinquent;
 							  var v = 3; //Math.floor((q*100)/6)
