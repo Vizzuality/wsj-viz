@@ -272,12 +272,12 @@
                 this.length = from < 0 ? this.length + from : from;
                 return this.push.apply(this, rest);
             };
-			$('#fullscreen a').click(function(){
+			$('#fullscreen').click(function(){
 				var bnds = map.getBounds();
-				if($('#map_canvas').hasClass('fullscreen')){
-					$('#map_canvas').removeClass('fullscreen');
+				if($('body').hasClass('fullscreen')){
+					$('body').removeClass('fullscreen');
 				}else{
-					$('#map_canvas').addClass('fullscreen');
+					$('body').addClass('fullscreen');
 				}
 				google.maps.event.trigger(map, 'resize');
 				map.fitBounds(bnds);
