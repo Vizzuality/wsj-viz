@@ -4,16 +4,20 @@
 		this.feature_;
 		this.map_ = map;
 		this.columns_;
-	  this.offsetHorizontal_ = -132;
 	  this.width_ = 264;
+	  this.height_ = 124;
+	  this.offsetVertical_ = -114;
+	  this.offsetHorizontal_ = -47;
+
+
 	  this.setMap(map);
 	}
 	CartoDBInfowindow.prototype = new google.maps.OverlayView();
-	CartoDBInfowindow.prototype.draw = function(x,y,txt) {
+	CartoDBInfowindow.prototype.draw = function(latlng,txt) {
 	  var me = this;
 	  var div = this.div_;
-	  this.x_ = x;
-	  this.y_ = y;
+	  this.latlng_ = latlng;
+
 	  if (!div) {
 	    div = this.div_ = document.createElement('div');
 	    div.setAttribute('class','cartodb_infowindow');
@@ -30,30 +34,31 @@
 	    div.style.opacity = 0;
 	  }
 	  if (txt){
-	      
         div.innerHTML = txt;
- 	    $(div).find('a.close').click(function(evz){
- 	      evz.preventDefault();
- 	      evz.stopPropagation();
+        $(div).find('a.close').unbind('click');
+ 	    	$(div).find('a.close').click(function(evz){
+ 	      	evz.preventDefault();
+ 	      	evz.stopPropagation();
           me.hide();
         });
 	  }
 
 	  var pixPosition = this.getProjection().fromLatLngToDivPixel(this.latlng_);
+
 	  if (pixPosition) {
-		  div.style.width = this.width_ + 'px';
-		  div.style.left = (x - 49) + 'px';
-		  var actual_height = - $(div).height();
-		//actual_height = 33;
-		  div.style.top = (y + actual_height + 2) + 'px';
-	  }
+  	  div.style.width = this.width_ + 'px';
+  	  div.style.left = (pixPosition.x + this.offsetHorizontal_) + 'px';
+  	  div.style.height = this.height_ + 'px';
+  	  div.style.top = (pixPosition.y + this.offsetVertical_) + 'px';
+    }
 	};
 	CartoDBInfowindow.prototype.start = function() {
 	  if (this.div_) { 
  	    var div = this.div_;
+ 	    
  	    this.moveMaptoOpen();
  	    this.show();
-      }
+    }
 	}
 	CartoDBInfowindow.prototype.show = function() {
 	  if (this.div_) {
@@ -88,20 +93,18 @@
 		var left = 0;
 		var top = 0;
 		var div = this.div_;
-		var x = this.x_;
-		var y = this.y_;
-	    //var pixPosition = this.getProjection().fromLatLngToContainerPixel(this.latlng_);
+		var pixPosition = this.getProjection().fromLatLngToContainerPixel(this.latlng_);
 
-		if ((x + this.offsetHorizontal_) < 0) {
-			left = (x + this.offsetHorizontal_ - 20);
+		if ((pixPosition.x + this.offsetHorizontal_) < 0) {
+			left = (pixPosition.x + this.offsetHorizontal_ - 20);
 		}
 
-		if ((x + 180) >= ($('#map_canvas').width())) {
-			left = (x + 180 - $('#map_canvas').width());
+		if ((pixPosition.x + this.width_) >= ($('#map_canvas').width())) {
+			left = (pixPosition.x + this.width_ - $('#map_canvas').width());
 		}
 
-		if ((y - $(div).height()) < 0) {
-			top = (y - $(div).height() - 30);
+		if ((pixPosition.y - $(div).height()) < 0) {
+			top = (pixPosition.y - $(div).height() - 30);
 		}
 
 		this.map_.panBy(left,top);
