@@ -371,10 +371,11 @@
             };
 			$('#fullscreen a').click(function(){
 				var bnds = map.getBounds();
-				var zm = map.getZoom();
-				console.log(zm);
-				console.log(zm+1);
-				$('#map_canvas').addClass('fullscreen');
+				if($('#map_canvas').hasClass('fullscreen')){
+					$('#map_canvas').removeClass('fullscreen');
+				}else{
+					$('#map_canvas').addClass('fullscreen');
+				}
 				google.maps.event.trigger(map, 'resize');
 				map.fitBounds(bnds);
 				
