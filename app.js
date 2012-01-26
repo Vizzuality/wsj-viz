@@ -3,15 +3,12 @@
 		function toggleFullscreen(){}
 
         function initialize() {
-
-
-
+            
             if ($.browser.msie) {
                 alert('IE -> ' + $.browser.msie);
                 return false;
-            }                
-
-
+            }
+                            
             var mapOptions = {
                 zoom: 9,
                 center: center,
@@ -71,6 +68,7 @@
                     }
                 ]
             };
+            
             var LW = 2;
             var PO = 0.95;
             var sh =  [
