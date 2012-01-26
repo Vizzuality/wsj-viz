@@ -5,7 +5,11 @@
         function initialize() {
 
 
-            alert($.browser.version);
+
+            if ($.browser.msie) {
+                alert('IE -> ' + $.browser.msie);
+                return false;
+            }                
 
 
             var mapOptions = {
