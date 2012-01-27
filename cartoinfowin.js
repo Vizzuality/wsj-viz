@@ -63,13 +63,13 @@
 	CartoDBInfowindow.prototype.show = function() {
 	  if (this.div_) {
 	    var div = this.div_;
-			div.style.opacity = 0;
+			div.style.opacity = 1;
 			div.style.visibility = "visible";
-			$(div).animate({
-	      top: '-=' + 10 + 'px',
-	      opacity: 1},
-	      250
-			);
+      // $(div).animate({
+      //        top: '-=' + 10 + 'px',
+      //        opacity: 1},
+      //        250
+      // );
 		}
 	}
 	CartoDBInfowindow.prototype.hide = function() {
