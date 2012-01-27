@@ -4,13 +4,12 @@
     <title>CartoDB - Wall Street Journal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta charset="UTF-8">
-
     <link href="stylesheets/cartodb.css" media="screen" rel="stylesheet" type="text/css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"> </script>
     <script type="text/javascript" src="build/app_base.js"></script>    
     <script type="text/javascript">
-      var isiPad = navigator.userAgent.match(/iPad/i) != null;
+      var isiPad = navigator.userAgent.match(/(iPhone)|(iPod)|(iPad)|(android)/i) != null;
       if (isiPad) {
           var script = document.createElement('script');
           script.type = "text/javascript";
