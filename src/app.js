@@ -99,7 +99,7 @@ function initialize() {
         var script = document.createElement('script');
         script.id = 'uploadScript';
         script.type = 'text/javascript';
-        script.src = "src/cartodb-gmapsv3.js?x=" + Math.random();
+        script.src = "build/cartodb-gmapsv3.js";
         head.appendChild(script);
         script.onreadystatechange = function() {
             //script.onload = function(){
