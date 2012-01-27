@@ -129,10 +129,18 @@ function initialize() {
         var sh = [
         {
             'point-color': '#FFF',
-            'line-color': "rgba(0, 0, 0, 0.4)",
+            'line-color': function(data) {
+                if (data.zipcode == 32720 || data.zipcode == 32724) {
+                    return "rgba(11,11,11, 0.6)";
+                } else {
+                    return "rgba(0, 0, 0, 0.4)";
+                }
+            },
             'line-width': function(data) {
                 if (data.cartodb_id == -1.0) {
                     return 3;
+                } else if (data.zipcode == 32720 || data.zipcode == 32724) {
+                    return 2.8;
                 } else {
                     return 0.7;
                 }
@@ -173,69 +181,6 @@ function initialize() {
 
                     }
                     return colors[v];
-                }
-            }
-        },
-        {
-            'point-color': '#FFF',
-            'line-color': "rgba(0, 0, 0, 0.4)",
-            'line-width': function(data) {
-                if (data.cartodb_id == -1.0) {
-                    return 3;
-                } else {
-                    return 0.7;
-                }
-            },
-            'polygon-fill': function(data) {
-                if (data.cartodb_id == -1.0) {
-                    return "rgba(0,0,0,0)";
-                } else {
-                    var q = data.percent_delinquent;
-                    var v = 3;
-                    //Math.floor((q*100)/6)
-                    var colors = [
-                    "rgba(243,217,206, " + (PO) + ")",
-                    "rgba(232,179,164, " + (PO) + ")",
-                    "rgba(215,116,100, " + (PO) + ")",
-                    "rgba(199,37,53, " + PO + ")"
-                    ];
-                    if (q < .2) {
-                        v = 2;
-                        if (q < .12) {
-                            v = 1;
-                            if (q < .3) {
-                                v = 0;
-                            }
-                        }
-
-                    }
-                    return colors[v];
-                }
-            }
-        },
-        {
-            'point-color': '#FFF',
-            'line-color': "rgba(0, 0, 0, 0.4)",
-            'line-width': function(data) {
-                if (data.cartodb_id == -1.0) {
-                    return 3;
-                } else {
-                    return 0.7;
-                }
-            },
-            'polygon-fill': function(data) {
-                if (data.cartodb_id == -1.0) {
-                    return 'none';
-                } else {
-                    var q = data.percent_delinquent;
-                    var colors = [
-                    "rgba(198, 219, 239, " + PO + ")",
-                    "rgba(158, 202, 225, " + (PO) + ")",
-                    "rgba(107, 174, 214, " + (PO) + ")",
-                    "rgba(49, 130, 189, " + (PO) + ")",
-                    "rgba(8, 81, 176, " + (PO) + ")"
-                    ];
-                    return colors[Math.floor(((q * 100)) / 5)];
                 }
             }
         }
