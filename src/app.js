@@ -92,7 +92,7 @@ function initialize() {
         map.setZoom(map.getZoom() - 1);
     });
 
-    if ($.browser.msie) {
+    if ($.browser.msie && parseInt($.browser.version) < 9) {
         //START NON IE
         //alert('IE Explorer');
         var head = document.getElementsByTagName("head")[0];
