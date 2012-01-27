@@ -91,7 +91,7 @@ function initialize() {
     function() {
         map.setZoom(map.getZoom() - 1);
     });
-
+    
     if ($.browser.msie && parseInt($.browser.version) < 9) {
         //START NON IE
         //alert('IE Explorer');
@@ -99,7 +99,7 @@ function initialize() {
         var script = document.createElement('script');
         script.id = 'uploadScript';
         script.type = 'text/javascript';
-        script.src = "cartodb-gmapsv3.js?x=" + Math.random();
+        script.src = "src/cartodb-gmapsv3.js?x=" + Math.random();
         head.appendChild(script);
         script.onreadystatechange = function() {
             //script.onload = function(){
@@ -335,7 +335,7 @@ function initialize() {
                         var yy = Math.floor((worldCoordinate.y - worldCoordinateNW.y) * scale);
                         var txt = '<a href="#close" class="close">x</a>' +
                         '<div class="outer_top">' +
-                        '<div class="top"><p>Homes seriously delinquent or in foreclosure</p></div>' +
+                        '<div class="top"><p>Homes seriously delinquent<br/> or in foreclosure</p></div>' +
                         '</div>' +
                         '<div class="bottom">' +
                         '<label class="strong">' + pc + '% </label>' +

@@ -414,7 +414,7 @@ if (typeof(google.maps.CartoDBLayer) === "undefined") {
 	    div.setAttribute('class','cartodb_infowindow');
 	
       div.innerHTML = '<a href="#close" class="close">x</a>'+
-  			              '<div class="outer_top">Homes seriously delinquent or in foreclosure<div class="top">'+
+  			              '<div class="outer_top">Homes seriously delinquent<br/> or in foreclosure<div class="top">'+
   			                '</div>'+
   			              '</div>'+
   			              '<div class="bottom">'+
