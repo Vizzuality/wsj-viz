@@ -116,8 +116,8 @@
 
 
 /*Marker infowindow*/
-div.cartodb_infowindow {position:absolute; display:block; width:264px; padding:0; visibility:hidden;}
-div.cartodb_infowindow a.close {position:absolute; right:16px; top:10px; width:22px; height:15px; padding:4px 0 3px 0; text-align:center; font:bold 15px Arial, "Helvetica Neue", Helvetica, sans-serif; color:#666666; text-decoration:none; line-height:15px}
+div.cartodb_infowindow {position:absolute; display:block; width:264px; padding:0; visibility:hidden;pointer-events:none;}
+div.cartodb_infowindow a.close {position:absolute; right:16px; top:10px; width:22px; height:15px; padding:4px 0 3px 0; text-align:center; font:bold 15px Arial, "Helvetica Neue", Helvetica, sans-serif; color:#666666; text-decoration:none; line-height:15px;pointer-events:auto}
 div.cartodb_infowindow a.close:hover {color:#333333}
 div.cartodb_infowindow div.outer_top {width:236px; padding:20px 18px 0 10px; background:url('../images/sprite_right.png') 0 top;}
 div.cartodb_infowindow div.top {width:236px; max-height:200px; overflow-y:auto; overflow-x:hidden; padding: 0 2px 0 2px;}

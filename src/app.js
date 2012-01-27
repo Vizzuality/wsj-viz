@@ -145,13 +145,13 @@ function initialize() {
                     var v = 0;
                     //Math.floor((q*100)/6)
                     var colors = [
-                    "rgba(252, 187, 161," + PO + ")",
-                    "rgba(252, 146, 114," + PO + ")",
-                    "rgba(251, 106, 74," + PO + ")",
-                    "rgba(239, 59, 44," + PO + ")",
-                    "rgba(203, 24, 29," + PO + ")",
+                    "rgba(103, 0, 13," + PO + ")",
                     "rgba(165, 15, 21," + PO + ")",
-                    "rgba(103, 0, 13," + PO + ")"
+                    "rgba(203, 24, 29," + PO + ")",
+                    "rgba(239, 59, 44," + PO + ")",
+                    "rgba(251, 106, 74," + PO + ")",
+                    "rgba(252, 146, 114," + PO + ")",
+                    "rgba(252, 187, 161," + PO + ")"
                     ];
                     if (q <= .22) {
                         v++;
@@ -316,6 +316,7 @@ function initialize() {
                             myGoogleVectors.push(myGoogleVector);
                         }
                     }
+                    
                     google.maps.event.addListener(myGoogleVector, 'click',
                     function(ev) {
                         var pc = (tile.primitives[primitive_idx].properties.percent_delinquent * 100).toFixed(1);
