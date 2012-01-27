@@ -6,10 +6,10 @@ Map uses CartoDB + HTML5 canvas to make an interactive choropleth map. Falls bac
 
 Mobile compatibility
 ==
-iPad
-iPhone
-iPod
-Android (basic untested support)
+* iPad
+* iPhone
+* iPod
+* Android (basic untested support)
 
 Developers
 ==
