@@ -7,7 +7,7 @@
 	  this.width_ = 264;
 	  this.height_ = 124;
 	  this.offsetVertical_ = -114;
-	  this.offsetHorizontal_ = -47;
+	  this.offsetHorizontal_ = -191;
 
 
 	  this.setMap(map);
@@ -99,8 +99,8 @@
 			left = (pixPosition.x + this.offsetHorizontal_ - 20);
 		}
 
-		if ((pixPosition.x + this.width_) >= ($('#map_canvas').width())) {
-			left = (pixPosition.x + this.width_ - $('#map_canvas').width());
+		if ((pixPosition.x + this.width_ + this.offsetHorizontal_) >= ($('#map_canvas').width())) {
+			left = (pixPosition.x + this.width_ + this.offsetHorizontal_ - $('#map_canvas').width());
 		}
 
 		if ((pixPosition.y - $(div).height()) < 0) {

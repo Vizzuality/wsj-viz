@@ -14,7 +14,7 @@ function CartoDB(options) {
     });
 
     if(options.user && options.table) {
-        this.base_url = 'http://' + options.user + ".cartodb.com/api/v2/sql";
+        this.base_url = 'http://' + options.user + ".cartodb.com/api/v1/sql";
         this._init_layer();
     } else {
         throw Exception("CartoDB user and table must be specified");
@@ -57,14 +57,17 @@ CartoDB.prototype.tile_data = function(x, y, zoom , callback) {
     if (zoom >= 17){
       the_geom = geom_column
     } else if (zoom >= 14 ){
-      the_geom = 'ST_Simplify((ST_Dump('+geom_column+')).geom,0.0000005) as the_geom'
+      the_geom = 'ST_Simplify((ST_Dump('+geom_column+')).geom,0.0000005) as the_geom';
+      //the_geom = 'ST_SnapToGrid('+geom_column+',0.0000005) as the_geom'
     } else if (zoom >= 10){
-      the_geom = 'ST_Simplify((ST_Dump('+geom_column+')).geom,0.00005) as the_geom'
+      the_geom = 'ST_Simplify((ST_Dump('+geom_column+')).geom,0.00005) as the_geom';
+      //the_geom = 'ST_SnapToGrid('+geom_column+',0.00005) as the_geom'
     } else if (zoom >=6){
-      the_geom = 'ST_Simplify((ST_Dump('+geom_column+')).geom,0.0005) as the_geom'
+      the_geom = 'ST_Simplify((ST_Dump('+geom_column+')).geom,0.0005) as the_geom';
+      //the_geom = 'ST_SnapToGrid('+geom_column+',0.0005) as the_geom'
     } else {
-      the_geom = 'ST_Simplify((ST_Dump('+geom_column+')).geom,0.05) as the_geom'
-      the_geom = 'ST_Simplify((ST_Dump('+geom_column+')).geom,0.0005) as the_geom'
+      the_geom = 'ST_Simplify((ST_Dump('+geom_column+')).geom,0.0005) as the_geom';
+      the_geom = 'ST_SnapToGrid('+geom_column+',0.0005) as the_geom'
     }
     
     var columns = [the_geom].concat(opts.columns).join(',');
@@ -78,12 +81,6 @@ CartoDB.prototype.tile_data = function(x, y, zoom , callback) {
     if(this.options.where) {
         sql  += " AND " + this.options.where;
     }
-    
-    //add the county outline to the back
-    var fakecols = ['-1.0 as cartodb_id',"'000' as zipcode", '1.0 as percent_delinquent']; // "'' as pt"]
-    var columnsU = [the_geom].concat(fakecols).join(',');
-    sql = sql + " UNION select " + columnsU +" from volusiaboundary WHERE the_geom && " + ints;
-    
     this.sql(sql, callback);
 };
 

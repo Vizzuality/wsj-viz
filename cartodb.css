@@ -5,10 +5,11 @@
         padding: 0;
         margin: 0;
         position: relative;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif
     }
     #fullscreen {
 			position:absolute;
-			top:42px;
+			top:6px;
 			right:3px;
 			display:block;
 			width:25px;
@@ -22,12 +23,41 @@
 			background-position:0 -25px;
 		}
     body.fullscreen #fullscreen {
-    	background-position:0 -50px;
+    	/*background-position:0 -50px;*/
 		}
 		body.fullscreen #fullscreen:hover {
-			background-position:0 -75px;
+			/*background-position:0 -75px;*/
 		}
-
+    #zoom_in {
+			position:absolute;
+			top:6px;
+			left:3px;
+			display:block;
+			width:25px;
+			height:25px;
+			text-indent:-9999px;
+			line-height:0;
+			text-transform:uppercase;
+			background:url('zoom_in.png') no-repeat 0 0;
+		}
+		#zoom_in:hover {
+			background-position:0 -25px;
+		}
+    #zoom_out {
+			position:absolute;
+			top:35px;
+			left:3px;
+			display:block;
+			width:25px;
+			height:25px;
+			text-indent:-9999px;
+			line-height:0;
+			text-transform:uppercase;
+			background:url('zoom_out.png') no-repeat 0 0;
+		}
+		#zoom_out:hover {
+			background-position:0 -25px;
+		}
     #map_canvas {
         position: absolute;
         left:0;
@@ -69,7 +99,7 @@
         color: #555;
     }
     h1 {
-        font-family: Helvetica;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
         margin: 15px 0 20px 0 ;
         line-height: 1em;
     }
@@ -87,22 +117,22 @@
 
 /*Marker infowindow*/
 div.cartodb_infowindow {position:absolute; display:block; width:264px; padding:0; visibility:hidden;}
-div.cartodb_infowindow a.close {position:absolute; right:3px; top:3px; width:22px; height:15px; padding:4px 0 3px 0; text-align:center; font:bold 15px "Helvetica",Arial; color:#666666; text-decoration:none; line-height:15px}
+div.cartodb_infowindow a.close {position:absolute; right:16px; top:10px; width:22px; height:15px; padding:4px 0 3px 0; text-align:center; font:bold 15px Arial, "Helvetica Neue", Helvetica, sans-serif; color:#666666; text-decoration:none; line-height:15px}
 div.cartodb_infowindow a.close:hover {color:#333333}
-div.cartodb_infowindow div.outer_top {width:236px; padding:25px 18px 0 10px; background:url('sprite7.png') 0 top;}
+div.cartodb_infowindow div.outer_top {width:236px; padding:20px 18px 0 10px; background:url('sprite_right.png') 0 top;}
 div.cartodb_infowindow div.top {width:236px; max-height:200px; overflow-y:auto; overflow-x:hidden; padding: 0 2px 0 2px;}
 div.cartodb_infowindow div.top .jspTrack {background: #dddddd;}
 div.cartodb_infowindow div.top .jspDrag {background: #999999;}
 div.cartodb_infowindow div.top .jspHover, div.cartodb_infowindow div.top .jspActive {background:#666666}
 div.cartodb_infowindow div.top label {display:block; width:auto; padding:0 0 0 5px; font:normal 11px Arial; color:#B3B3B3; text-shadow:0 1px white}
-div.cartodb_infowindow div.top p {display:block; width:220px; padding:2px 4px; margin:2px 0 0; font:normal 12px 'Helvetica',Arial; color:#666666; border:none; background:none; text-shadow:0 1px white;}
+div.cartodb_infowindow div.top p {display:block; width:195px; padding:2px 4px; margin:2px 0 0; font:normal 14px Arial, "Helvetica Neue", Helvetica, sans-serif; color:#666666; border:none; background:none; text-shadow:0 1px white;}
 div.cartodb_infowindow div.top p.empty {font-weight:normal; font-style:italic; color:#b7b7b7;}
 /*div.cartodb_infowindow div.top p:focus {border:1px solid #666666; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px;}*/
-div.cartodb_infowindow div.bottom {width:230px; height:65px; padding:0 16px 0 10px; background:url('sprite7.png') no-repeat right -20px;}
+div.cartodb_infowindow div.bottom {width:230px; height:65px; padding:0 16px 0 10px; background:url('sprite_right.png') no-repeat right -20px;}
 div.cartodb_infowindow div.bottom label {float:left; margin:5px 0 0 7px; font:normal 11px Arial; color:#B3B3B3; text-shadow:0 1px white}
-div.cartodb_infowindow div.bottom label.strong {font:bold 28px 'Helvetica',Arial; color:#0071c4; text-shadow:0 1px white;}
-div.cartodb_infowindow div.bottom label.box {font:normal 11px 'Helvetica',Arial; color:#999999; line-height:11px; text-shadow:0 1px white; background: #eee; margin:10px 0 0 15px; padding: 5px;}
-div.cartodb_infowindow div.bottom a {float:right; height:12px; margin:0 5px 0 0; padding:4px 7px; border:1px solid #999; font:bold 11px "Helvetica",Arial; color:#333333; text-align:center;
+div.cartodb_infowindow div.bottom label.strong {font:bold 28px Arial, "Helvetica Neue", Helvetica, sans-serif; color:#0071c4; text-shadow:0 1px white;}
+div.cartodb_infowindow div.bottom label.box {font:bold 15px Arial, "Helvetica Neue", Helvetica, sans-serif; color:#999999; line-height:18px; text-shadow:0 1px white; background: #eee; margin:6px 0 0 8px; padding: 5px;}
+div.cartodb_infowindow div.bottom a {float:right; height:12px; margin:0 5px 0 0; padding:4px 7px; border:1px solid #999; font:bold 11px Arial, "Helvetica Neue", Helvetica, sans-serif; color:#333333; text-align:center;
   text-decoration:none; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; text-shadow:0 1px white; background:linear-gradient(-90deg, #FFFFFF, #CACBCE); background:-webkit-gradient(linear, 50% 0%, 50% 100%, from(#FFFFFF), to(#CACBCE));
   background:-moz-linear-gradient(-90deg, #FFFFFF, #CACBCE); background: -o-linear-gradient(#FFFFFF,#CACBCE); filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#FFFFFF', endColorstr='#CACBCE');}
 div.cartodb_infowindow div.bottom a:hover {background:linear-gradient(-90deg, #CACBCE, #FFFFFF); background:-webkit-gradient(linear, 50% 0%, 50% 100%, from(#CACBCE), to(#FFFFFF));
