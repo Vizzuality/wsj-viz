@@ -1,12 +1,8 @@
 Visualisation of home forclosure
 ==
-A demo app showing how to use CartoDB and HTML5 canvas to make an interactive choropleth map.
-
 Demo: http://vizzuality.github.com/wsj-viz/
 
-Compatibility
-==
-All HTML5 browsers with Canvas support
+Map uses CartoDB + HTML5 canvas to make an interactive choropleth map. Falls back to map tile output on non-HTML5 browsers
 
 Mobile compatibility
 ==
