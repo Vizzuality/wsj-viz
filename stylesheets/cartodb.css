@@ -23,9 +23,11 @@
 			background-position:0 -25px;
 		}
     body.fullscreen #fullscreen {
+		background:url('../images/back_fullscreen.png') no-repeat 0 0;
     	/*background-position:0 -50px;*/
 		}
 		body.fullscreen #fullscreen:hover {
+			background-position:0 -25px;
 			/*background-position:0 -75px;*/
 		}
     #zoom_in {
