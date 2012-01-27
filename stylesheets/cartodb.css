@@ -17,7 +17,7 @@
 			text-indent:-9999px;
 			line-height:0;
 			text-transform:uppercase;
-			background:url('fullscreen.png') no-repeat 0 0;
+			background:url('../images/fullscreen.png') no-repeat 0 0;
 		}
 		#fullscreen:hover {
 			background-position:0 -25px;
@@ -38,7 +38,7 @@
 			text-indent:-9999px;
 			line-height:0;
 			text-transform:uppercase;
-			background:url('zoom_in.png') no-repeat 0 0;
+			background:url('../images/zoom_in.png') no-repeat 0 0;
 		}
 		#zoom_in:hover {
 			background-position:0 -25px;
@@ -53,7 +53,7 @@
 			text-indent:-9999px;
 			line-height:0;
 			text-transform:uppercase;
-			background:url('zoom_out.png') no-repeat 0 0;
+			background:url('../images/zoom_out.png') no-repeat 0 0;
 		}
 		#zoom_out:hover {
 			background-position:0 -25px;
@@ -119,7 +119,7 @@
 div.cartodb_infowindow {position:absolute; display:block; width:264px; padding:0; visibility:hidden;}
 div.cartodb_infowindow a.close {position:absolute; right:16px; top:10px; width:22px; height:15px; padding:4px 0 3px 0; text-align:center; font:bold 15px Arial, "Helvetica Neue", Helvetica, sans-serif; color:#666666; text-decoration:none; line-height:15px}
 div.cartodb_infowindow a.close:hover {color:#333333}
-div.cartodb_infowindow div.outer_top {width:236px; padding:20px 18px 0 10px; background:url('sprite_right.png') 0 top;}
+div.cartodb_infowindow div.outer_top {width:236px; padding:20px 18px 0 10px; background:url('../images/sprite_right.png') 0 top;}
 div.cartodb_infowindow div.top {width:236px; max-height:200px; overflow-y:auto; overflow-x:hidden; padding: 0 2px 0 2px;}
 div.cartodb_infowindow div.top .jspTrack {background: #dddddd;}
 div.cartodb_infowindow div.top .jspDrag {background: #999999;}
@@ -128,7 +128,7 @@ div.cartodb_infowindow div.top label {display:block; width:auto; padding:0 0 0 5
 div.cartodb_infowindow div.top p {display:block; width:195px; padding:2px 4px; margin:2px 0 0; font:normal 14px Arial, "Helvetica Neue", Helvetica, sans-serif; color:#666666; border:none; background:none; text-shadow:0 1px white;}
 div.cartodb_infowindow div.top p.empty {font-weight:normal; font-style:italic; color:#b7b7b7;}
 /*div.cartodb_infowindow div.top p:focus {border:1px solid #666666; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px;}*/
-div.cartodb_infowindow div.bottom {width:230px; height:65px; padding:0 16px 0 10px; background:url('sprite_right.png') no-repeat right -20px;}
+div.cartodb_infowindow div.bottom {width:230px; height:65px; padding:0 16px 0 10px; background:url('../images/sprite_right.png') no-repeat right -20px;}
 div.cartodb_infowindow div.bottom label {float:left; margin:5px 0 0 7px; font:normal 11px Arial; color:#B3B3B3; text-shadow:0 1px white}
 div.cartodb_infowindow div.bottom label.strong {font:bold 28px Arial, "Helvetica Neue", Helvetica, sans-serif; color:#0071c4; text-shadow:0 1px white;}
 div.cartodb_infowindow div.bottom label.box {font:bold 15px Arial, "Helvetica Neue", Helvetica, sans-serif; color:#999999; line-height:18px; text-shadow:0 1px white; background: #eee; margin:6px 0 0 8px; padding: 5px;}

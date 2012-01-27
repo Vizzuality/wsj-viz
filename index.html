@@ -5,27 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta charset="UTF-8">
 
-    <link href="cartodb.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/cartodb.css" media="screen" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"> </script>
-    <script type="text/javascript" src="cartoshader.js"> </script>
-    <script type="text/javascript" src="gmaps_mercator.js"> </script>
-    <script type="text/javascript" src="canvas_tile_layer.js"> </script>
-    <script type="text/javascript" src="cartodb_vector.js"> </script>
-    <script type="text/javascript" src="GeoJSON.js"></script>
-    <script type="text/javascript" src="cartoinfowin.js"> </script>
-    <script type="text/javascript" src="wax.g.js"></script>    
+    <script type="text/javascript" src="src/cartoshader.js"> </script>
+    <script type="text/javascript" src="src/gmaps_mercator.js"> </script>
+    <script type="text/javascript" src="src/canvas_tile_layer.js"> </script>
+    <script type="text/javascript" src="src/cartodb_vector.js"> </script>
+    <script type="text/javascript" src="src/GeoJSON.js"></script>
+    <script type="text/javascript" src="src/cartoinfowin.js"> </script>
+    <script type="text/javascript" src="src/wax.g.js"></script>    
     <script type="text/javascript">
       var isiPad = navigator.userAgent.match(/iPad/i) != null;
       if (isiPad) {
           var script = document.createElement('script');
           script.type = "text/javascript";
-          script.src = "app_ipad.js";
+          script.src = "src/app_ipad.js";
           document.getElementsByTagName('head')[0].appendChild(script);
       } else {
         var script = document.createElement('script');
         script.type = "text/javascript";
-        script.src = "app.js";
+        script.src = "src/app.js";
         document.getElementsByTagName('head')[0].appendChild(script);
       }
     </script>
