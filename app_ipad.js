@@ -261,7 +261,7 @@ function initialize() {
 
         var infowindow = new CartoDBInfowindow(map);
 
-        google.maps.event.addListener(map, 'mousemove',
+        google.maps.event.addListener(map, 'click',
         function(event) {
             // get tile
             var coord = projection.latLngToTile(event.latLng, map.zoom);
@@ -320,34 +320,32 @@ function initialize() {
                             myGoogleVectors.push(myGoogleVector);
                         }
                     }
-                    google.maps.event.addListener(myGoogleVector, 'click',
-                    function(ev) {
-                        console.log(ev.latLng.lat() + " " + ev.latLng.lat() + ",");
-                        var pc = (tile.primitives[primitive_idx].properties.percent_delinquent * 100).toFixed(1);
-                        var zc = tile.primitives[primitive_idx].properties.zipcode;
 
-                        var scale = Math.pow(2, map.getZoom());
+                    // render infowindow too
+                    var pc = (tile.primitives[primitive_idx].properties.percent_delinquent * 100).toFixed(1);
+                    var zc = tile.primitives[primitive_idx].properties.zipcode;
 
-                        var nw = new google.maps.LatLng(
-                        map.getBounds().getNorthEast().lat(),
-                        map.getBounds().getSouthWest().lng()
-                        );
-                        //console.log(map.getBounds().getSouthWest().lng());
-                        var worldCoordinateNW = map.getProjection().fromLatLngToPoint(nw);
-                        var worldCoordinate = map.getProjection().fromLatLngToPoint(ev.latLng);
-                        var xx = Math.floor((worldCoordinate.x - worldCoordinateNW.x) * scale);
-                        var yy = Math.floor((worldCoordinate.y - worldCoordinateNW.y) * scale);
-                        var txt = '<a href="#close" class="close">x</a>' +
-                        '<div class="outer_top">' +
-                        '<div class="top"><p>Homes seriously delinquent or in foreclosure</p></div>' +
-                        '</div>' +
-                        '<div class="bottom">' +
-                        '<label class="strong">' + pc + '% </label>' +
-                        '<label class="box">ZIP CODE: ' + zc + ' </label>' +
-                        '</div>';
-                        infowindow.draw(ev.latLng, txt);
-                        infowindow.start();
-                    });
+                    var scale = Math.pow(2, map.getZoom());
+
+                    var nw = new google.maps.LatLng(
+                    map.getBounds().getNorthEast().lat(),
+                    map.getBounds().getSouthWest().lng()
+                    );
+                    //console.log(map.getBounds().getSouthWest().lng());
+                    var worldCoordinateNW = map.getProjection().fromLatLngToPoint(nw);
+                    var worldCoordinate = map.getProjection().fromLatLngToPoint(event.latLng);
+                    var xx = Math.floor((worldCoordinate.x - worldCoordinateNW.x) * scale);
+                    var yy = Math.floor((worldCoordinate.y - worldCoordinateNW.y) * scale);
+                    var txt = '<a href="#close" class="close">x</a>' +
+                    '<div class="outer_top">' +
+                    '<div class="top"><p>Homes seriously delinquent or in foreclosure</p></div>' +
+                    '</div>' +
+                    '<div class="bottom">' +
+                    '<label class="strong">' + pc + '% </label>' +
+                    '<label class="box">ZIP CODE: ' + zc + ' </label>' +
+                    '</div>';
+                    infowindow.draw(event.latLng, txt);
+                    infowindow.start();
 
                     // render the geometry to canvas here...
                 }

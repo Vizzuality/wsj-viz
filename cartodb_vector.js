@@ -30,11 +30,11 @@ CartoDB.prototype.set_css = function(css) {
 CartoDB.prototype.sql = function(sql, callback) {
     var self = this;
     if(this.options.debug) {
-        console.log(sql);
+        //console.log(sql);
     }
     data = this.cache[sql];
     if(data) {
-        console.log("CACHED");
+        //console.log("CACHED");
         callback(data);
         return;
     }
