@@ -237,7 +237,6 @@ function initialize() {
                     "rgba(49, 130, 189, " + (PO) + ")",
                     "rgba(8, 81, 176, " + (PO) + ")"
                     ];
-                    //console.log(q);
                     return colors[Math.floor(((q * 100)) / 5)];
                 }
             }
@@ -286,7 +285,6 @@ function initialize() {
             if (c[3] !== 0) {
                 // get primitive array index from rgb
                 var primitive_idx = RGB2Int(c[0], c[1], c[2]);
-                //console.log(tile_id + ' ' + primitive_idx);
                 if (tile.primitives && tile.primitives[primitive_idx] && tile.primitives[primitive_idx].properties.cartodb_id != -1.0) {
                     var geom = JSON.stringify(tile.primitives[primitive_idx].geometry);
                     var text = "<b>tile:</b> " + coord + '<br>';
@@ -331,7 +329,6 @@ function initialize() {
                     map.getBounds().getNorthEast().lat(),
                     map.getBounds().getSouthWest().lng()
                     );
-                    //console.log(map.getBounds().getSouthWest().lng());
                     var worldCoordinateNW = map.getProjection().fromLatLngToPoint(nw);
                     var worldCoordinate = map.getProjection().fromLatLngToPoint(event.latLng);
                     var xx = Math.floor((worldCoordinate.x - worldCoordinateNW.x) * scale);
