@@ -14,7 +14,7 @@ function CartoDB(options) {
     });
 
     if(options.user && options.table) {
-        this.base_url = 'http://' + options.user + ".cartodb.com/api/v1/sql";
+        this.base_url = 'http://' + options.user + ".cartodb.com/api/v2/sql";
         this._init_layer();
     } else {
         throw Exception("CartoDB user and table must be specified");
