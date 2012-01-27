@@ -65,7 +65,7 @@ CanvasTileLayer.prototype.create_tile_canvas = function(coord, zoom, ownerDocume
     return canvas;
 }
 
-
+ 
 CanvasTileLayer.prototype.each = function(callback) {
     for(var t in this.tiles) {
         var tile = this.tiles[t];
