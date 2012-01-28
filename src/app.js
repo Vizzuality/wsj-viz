@@ -79,6 +79,13 @@ function initialize() {
             stylers: [{
                 visibility: "off"
             }]
+        },
+        {
+            featureType: "administrative.locality",
+            elementType: "labels",
+            stylers: [{ 
+                visibility: "on" 
+            }]
         }]
     };
 
@@ -100,7 +107,7 @@ function initialize() {
         script.type = 'text/javascript';
         script.src = "build/cartodb-gmapsv3.js";
         head.appendChild(script);
-        script.onreadystatechange = function() {
+        script.onload = function() {
             ie_cartodb2_gmapsv3 = new google.maps.CartoDBLayer({
                 map_canvas: 'map_canvas',
                 map: map,
@@ -129,22 +136,8 @@ function initialize() {
         var sh = [
         {
             'point-color': '#FFF',
-            'line-color': function(data) {
-                if (data.zipcode == 32720 || data.zipcode == 32724) {
-                    return "rgba(11,11,11, 0.6)";
-                } else {
-                    return "rgba(0, 0, 0, 0.4)";
-                }
-            },
-            'line-width': function(data) {
-                if (data.cartodb_id == -1.0) {
-                    return 3;
-                } else if (data.zipcode == 32720 || data.zipcode == 32724) {
-                    return 2.8;
-                } else {
-                    return 0.7;
-                }
-            },
+            'line-color': "rgba(0, 0, 0, 0.4)",
+            'line-width': .7,
             'polygon-fill': function(data) {
                 if (data.cartodb_id == -1.0) {
                     return "rgba(0,0,0,0)";
