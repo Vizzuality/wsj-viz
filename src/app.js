@@ -107,7 +107,7 @@ function initialize() {
         script.type = 'text/javascript';
         script.src = "build/cartodb-gmapsv3.js";
         head.appendChild(script);
-        script.onload = function() {
+        script.onreadystatechange = function() {
             ie_cartodb2_gmapsv3 = new google.maps.CartoDBLayer({
                 map_canvas: 'map_canvas',
                 map: map,
