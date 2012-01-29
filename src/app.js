@@ -138,7 +138,7 @@ function initialize() {
             'point-color': '#FFF',
             'line-color': "rgba(0, 0, 0, 0.4)",
             'line-width': function(data) {
-                if (data.carto_db == -1.0){
+                if (data.cartodb_id == -1.0){
                     return 2.0;
                 } else {
                     return 0.7;
