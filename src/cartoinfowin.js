@@ -19,7 +19,7 @@
 	  if (!div) {
 	    div = this.div_ = document.createElement('DIV');
 	    div.className = "cartodb_infowindow";
-	    $(div).append('<a href="#close" class="close" style="background:red!important">x</a><div class="outer_top"><div class="top"><p>Mortgages seriously delinquent or in foreclosure</p></div></div><div class="bottom"><label class="strong">% </label><label class="box">ZIP CODE:</label></div>');
+	    $(div).append('<a href="#close" class="close">x</a><div class="outer_top"><div class="top"><p>Mortgages seriously delinquent or in foreclosure</p></div></div><div class="bottom"><label class="strong">% </label><label class="box">ZIP CODE:</label></div>');
 
 	    $(div).find('a.close').click(function(evz){
 	      evz.preventDefault();
@@ -43,7 +43,7 @@
 
 	  if (array){
 	  	$(div).find('label.strong').text(array[0] + '%');
-	  	$(div).find('label.box').text(array[1]); 
+	  	$(div).find('label.box').text('ZIP CODE:' + array[1]); 
 	  }
 
 	  var pixPosition = this.getProjection().fromLatLngToDivPixel(this.latlng_);

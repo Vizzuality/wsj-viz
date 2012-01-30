@@ -128,7 +128,6 @@ function initialize() {
     });
     if ($.browser.msie && parseInt($.browser.version) < 9) {
         //START NON IE
-        //alert('IE Explorer');
         var head = document.getElementsByTagName("head")[0];
         script = document.createElement('script');
         script.id = 'uploadScript';
@@ -340,7 +339,6 @@ function initialize() {
         google.maps.event.trigger(map, 'resize');
         map.setCenter(cent);
         map.setZoom(zm);
-
     });
 }
 
