@@ -8,24 +8,30 @@
 	  this.height_ = 124;
 	  this.offsetVertical_ = -114;
 	  this.offsetHorizontal_ = -191;
-
-
 	  this.setMap(map);
 	}
 	CartoDBInfowindow.prototype = new google.maps.OverlayView();
-	CartoDBInfowindow.prototype.draw = function(latlng,txt) {
+	CartoDBInfowindow.prototype.draw = function(latlng,array) {
 	  var me = this;
 	  var div = this.div_;
 	  this.latlng_ = latlng;
 
 	  if (!div) {
-	    div = this.div_ = document.createElement('div');
-	    div.setAttribute('class','cartodb_infowindow');
-	      google.maps.event.addDomListener(div,'click',function(ev){ev.preventDefault ? ev.preventDefault() : ev.returnValue = false;});
+	    div = this.div_ = document.createElement('DIV');
+	    div.className = "cartodb_infowindow";
+	    $(div).append('<a href="#close" class="close" style="background:red!important">x</a><div class="outer_top"><div class="top"><p>Mortgages seriously delinquent or in foreclosure</p></div></div><div class="bottom"><label class="strong">% </label><label class="box">ZIP CODE:</label></div>');
+
+	    $(div).find('a.close').click(function(evz){
+	      evz.preventDefault();
+	      evz.stopPropagation();
+	      me.hide();
+	    });
+
+	    google.maps.event.addDomListener(div,'click',function(ev){ev.preventDefault ? ev.preventDefault() : ev.returnValue = false;});
       google.maps.event.addDomListener(div,'dblclick',function(ev){ev.preventDefault ? ev.preventDefault() : ev.returnValue = false;});
       google.maps.event.addDomListener(div,'mousedown',function(ev){ev.preventDefault ? ev.preventDefault() : ev.returnValue = false;});
       google.maps.event.addDomListener(div,'mouseup',function(ev){ev.preventDefault ? ev.preventDefault() : ev.returnValue = false;});
-	   google.maps.event.addDomListener(div,'mousewheel',function(ev){ev.stopPropagation()});
+	   	google.maps.event.addDomListener(div,'mousewheel',function(ev){ev.stopPropagation()});
       google.maps.event.addDomListener(div,'DOMMouseScroll',function(ev){ev.stopPropagation()});
 
 	    var panes = this.getPanes();
@@ -33,14 +39,11 @@
 
 	    div.style.opacity = 0;
 	  }
-	  if (txt){
-        div.innerHTML = txt;
-        $(div).find('a.close').unbind('click');
- 	    	$(div).find('a.close').click(function(evz){
- 	      	evz.preventDefault();
- 	      	evz.stopPropagation();
-          me.hide();
-        });
+
+
+	  if (array){
+	  	$(div).find('label.strong').text(array[0] + '%');
+	  	$(div).find('label.box').text(array[1]); 
 	  }
 
 	  var pixPosition = this.getProjection().fromLatLngToDivPixel(this.latlng_);
@@ -65,11 +68,11 @@
 	    var div = this.div_;
 			div.style.opacity = 1;
 			div.style.visibility = "visible";
-      // $(div).animate({
-      //        top: '-=' + 10 + 'px',
-      //        opacity: 1},
-      //        250
-      // );
+      $(div).animate({
+	     top: '-=' + 10 + 'px',
+	     opacity: 1},
+	     250
+      );
 		}
 	}
 	CartoDBInfowindow.prototype.hide = function() {

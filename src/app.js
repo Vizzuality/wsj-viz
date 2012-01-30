@@ -283,15 +283,7 @@ function initialize() {
                         var worldCoordinate = map.getProjection().fromLatLngToPoint(ev.latLng);
                         var xx = Math.floor((worldCoordinate.x - worldCoordinateNW.x) * scale);
                         var yy = Math.floor((worldCoordinate.y - worldCoordinateNW.y) * scale);
-                        var txt = '<a href="#close" class="close">x</a>' +
-                        '<div class="outer_top">' +
-                        '<div class="top"><p>Mortgages seriously delinquent or in foreclosure</p></div>' +
-                        '</div>' +
-                        '<div class="bottom">' +
-                        '<label class="strong">' + pc + '% </label>' +
-                        '<label class="box">ZIP CODE: ' + zc + ' </label>' +
-                        '</div>';
-                        infowindow.draw(ev.latLng, txt);
+                        infowindow.draw(ev.latLng, [pc,zc]);
                         infowindow.start();
                     });
 
