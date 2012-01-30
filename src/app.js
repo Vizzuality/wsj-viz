@@ -1,30 +1,36 @@
 var map;
+var script;
 var ie_cartodb1_gmapsv3,
 ie_cartodb2_gmapsv3;
 function toggleFullscreen() {}
 
 function loadIE(){
-    ie_cartodb2_gmapsv3 = new google.maps.CartoDBLayer({
-        map_canvas: 'map_canvas',
-        map: map,
-        user_name: 'wsj',
-        table_name: 'volusiaboundary',
-        query: "SELECT * FROM volusiaboundary",
-        map_style: true,
-        infowindow: false,
-        auto_bound: false
-    });
-    ie_cartodb1_gmapsv3 = new google.maps.CartoDBLayer({
-        map_canvas: 'map_canvas',
-        map: map,
-        user_name: 'wsj',
-        table_name: 'volusia_homes_data',
-        map_style: true,
-        query: "SELECT * FROM volusia_homes_data WHERE cartodb_id != -1",
-        infowindow: true,
-        auto_bound: false
-    });
+    if(script.readyState == 'complete' || script.readyState == 'loaded'){
+        ie_cartodb2_gmapsv3 = new google.maps.CartoDBLayer({
+            map_canvas: 'map_canvas',
+            map: map,
+            user_name: 'wsj',
+            table_name: 'volusiaboundary',
+            query: "SELECT * FROM volusiaboundary",
+            map_style: true,
+            infowindow: false,
+            auto_bound: false
+        });
+        ie_cartodb1_gmapsv3 = new google.maps.CartoDBLayer({
+            map_canvas: 'map_canvas',
+            map: map,
+            user_name: 'wsj',
+            table_name: 'volusia_homes_data',
+            map_style: true,
+            query: "SELECT * FROM volusia_homes_data WHERE cartodb_id != -1",
+            infowindow: true,
+            auto_bound: false
+        });
+    } else {
+        setTimeout("loadIE()",200);
+    }
 }
+
 function initialize() {
     var mapOptions = {
         zoom: 9,
@@ -124,7 +130,7 @@ function initialize() {
         //START NON IE
         //alert('IE Explorer');
         var head = document.getElementsByTagName("head")[0];
-        var script = document.createElement('script');
+        script = document.createElement('script');
         script.id = 'uploadScript';
         script.type = 'text/javascript';
         script.src = "build/cartodb-gmapsv3.js";
@@ -133,7 +139,7 @@ function initialize() {
             if(this.readyState == 'complete' || this.readyState == 'loaded'){
                 loadIE();
             } else {
-                setTimeout(function(){loadIE()},200);
+                setTimeout("loadIE()",200);
             }
         }
         //END IE
