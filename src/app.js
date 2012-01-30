@@ -224,6 +224,7 @@ function initialize() {
 
             // get saved tile data from cartodb.layer
             var tile = cartodb.layer.tiles[tile_id];
+            if(!tile) return;
 
             //Get current tile coordinates
             var numTiles = 1 << map.zoom;
