@@ -219,6 +219,8 @@ function initialize() {
             // get tile
             var coord = projection.latLngToTile(event.latLng, map.zoom);
 
+            point = projection.fromLatLngToPoint(event.latLng);
+
             // get saved tile id from cartodb layer
             var tile_id = coord.x + '_' + coord.y + '_' + map.zoom;
 
@@ -228,7 +230,7 @@ function initialize() {
 
             //Get current tile coordinates
             var numTiles = 1 << map.zoom;
-            var pixel_offset = new google.maps.Point(Math.floor(event.point.x * numTiles % 256), Math.floor(event.point.y * numTiles % 256));
+            var pixel_offset = new google.maps.Point(Math.floor(point.x * numTiles % 256), Math.floor(point.y * numTiles % 256));
 
             // get hit context
             var hit_ctx = tile.hit_ctx;
